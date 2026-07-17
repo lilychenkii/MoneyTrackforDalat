@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sổ Tay Chi Tiêu Chuyến Đi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="cork-strip" aria-hidden="true"></div>
+
+<header class="trip-header">
+  <div class="header-inner">
+    <p class="eyebrow">Sổ tay chi tiêu · 3 ngày 2 đêm</p>
+    <h1><span class="hl">Đà Lạt trip</span></h1>
+    <p class="subtitle">25 - 27/07, 2026</p>
+  </div>
+</header>
+
+<div class="person-tabs">
+  <button type="button" class="person-tab-btn active" data-person-tab="khanhly">Khánh Ly</button>
+  <button type="button" class="person-tab-btn" data-person-tab="minhphuong">Minh Phương</button>
+</div>
+
+<main class="pages" id="pages">
+  <!-- Person columns injected by JS -->
+</main>
+
+<footer class="site-footer">
+</footer>
+
+<template id="dayTemplate">
+  <section class="day-entry">
+    <div class="day-tab">
+      <span class="day-num"></span>
+      <span class="day-label">Ngày</span>
+    </div>
+    <div class="entry-form">
+      <div class="field">
+        <label>Khoản chi</label>
+        <select class="cat-select">
+          <option value="Ăn uống">Ăn uống</option>
+          <option value="Cà phê">Cà phê</option>
+          <option value="Vui chơi / Check-in">Vui chơi, check-in</option>
+          <option value="Tiền phòng">Tiền phòng</option>
+          <option value="Tiền xe">Tiền xe</option>
+          <option value="Khác">Khác</option>
+        </select>
+      </div>
+      <div class="field amount-field">
+        <label>Số tiền (VNĐ)</label>
+        <input type="number" class="amount-input" placeholder="0" min="0" step="1000" inputmode="numeric">
+      </div>
+      <div class="field other-field">
+        <label>Cụ thể là gì? (ghi chú)</label>
+        <input type="text" class="other-input" placeholder="VD: cơm sườn, Cộng cà phê, vé tham quan...">
+      </div>
+      <button type="button" class="save-btn">Lưu khoản này</button>
+      <p class="form-error" hidden></p>
+    </div>
+
+    <div class="table-wrap">
+      <table class="entries-table">
+        <thead>
+          <tr>
+            <th>Khoản gì</th>
+            <th>Cụ thể</th>
+            <th class="num-col">Số tiền</th>
+            <th class="del-col"></th>
+          </tr>
+        </thead>
+        <tbody class="entries-body">
+          <tr class="empty-row"><td colspan="4">Chưa có khoản nào cho ngày này.</td></tr>
+        </tbody>
+      </table>
+      <div class="day-summary">
+        <div class="summary-line">
+          <span>Tổng chi ngày này</span>
+          <span class="day-total num">0 ₫</span>
+        </div>
+        <div class="summary-line running">
+          <span>Còn lại theo budget (tính đến ngày này)</span>
+          <span class="remaining-total num">0 ₫</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
+<template id="personTemplate">
+  <section class="page" data-person="">
+    <div class="page-head">
+      <h2 class="person-name"></h2>
+      <div class="budget-row">
+        <label>Budget của <span class="budget-name"></span> (VNĐ)</label>
+        <input type="number" class="budget-input" placeholder="VD: 3000000" min="0" step="10000" inputmode="numeric">
+      </div>
+    </div>
+    <div class="day-tabs">
+      <button type="button" class="day-tab-btn active" data-day-tab="1">Ngày 1</button>
+      <button type="button" class="day-tab-btn" data-day-tab="2">Ngày 2</button>
+      <button type="button" class="day-tab-btn" data-day-tab="3">Ngày 3</button>
+    </div>
+    <div class="days-container"></div>
+    <div class="page-total">
+      <div class="grand-line">
+        <span>Tổng đã chi cả 3 ngày</span>
+        <span class="grand-spent num">0 ₫</span>
+      </div>
+      <div class="grand-line remain">
+        <span>Còn lại so với budget</span>
+        <span class="grand-remain num">0 ₫</span>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script type="module" src="script.js"></script>
+</body>
+</html>
