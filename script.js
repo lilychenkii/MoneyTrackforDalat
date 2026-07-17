@@ -103,7 +103,6 @@ import {
     }
 
     frag.querySelector(".person-name").textContent = person.name;
-    frag.querySelector(".budget-name").textContent = person.name;
 
     var budgetInput = frag.querySelector(".budget-input");
     budgetInput.value = state.budgets[person.key] || "";
